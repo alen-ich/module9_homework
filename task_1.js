@@ -19,8 +19,9 @@ const xmlString = `<list>
   const parser = new DOMParser();
   const xmlDOM = parser.parseFromString(xmlString,"text/xml");
   const listNode = xmlDOM.querySelector("list");
-  const list = [];
-  
+  const resultObj = {
+    list: []
+  }
   for (let i=0; i < 2; i++){
     const studentNode = listNode.querySelectorAll("student")[i];
     const nameNode = studentNode.querySelector("name"); 
@@ -35,7 +36,7 @@ const xmlString = `<list>
         prof: profNode.textContent,
         lang: langAttr
       }
-    list.push(studentObj);
+      resultObj.list.push(studentObj);
   }
   
-  console.log('list', list);
+  console.log('resultObj', resultObj);
