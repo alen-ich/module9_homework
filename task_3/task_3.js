@@ -24,8 +24,6 @@ function useRequest(url, callback) {
   const btnNode = document.querySelector('.j-btn-request');
   function displayResult(apiData) {
     let cards = '';
-    // console.log('start cards', cards);
-    
     apiData.forEach(item => {
       const cardBlock = `
         <div class="card">
@@ -40,8 +38,7 @@ function useRequest(url, callback) {
     });
     resultNode.innerHTML = cards;
   }
-  
-  // Вешаем обработчик на кнопку для запроса
+
   btnNode.addEventListener('click', () => {
     const userValue = document.querySelector('input').value;
     if (userValue < 1 || userValue > 10){
